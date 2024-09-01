@@ -34,7 +34,7 @@ function Register({colors}){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://buzz-backend-pied.vercel.app/api/register', formData); 
+            const response = await axios.post('/api/register', formData); 
             toast.success('Account created. Please log in');
             console.log('User created:', response.data);
 
