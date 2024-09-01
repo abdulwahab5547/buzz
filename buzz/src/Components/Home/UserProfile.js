@@ -14,7 +14,7 @@ function UserProfile({colors, handleMessages}){
     const fetchUserProfile = async (username) => {
         try {
             // const token = localStorage.getItem('authToken');
-            const response = await fetch(`http://localhost:8000/api/profile/${username}`, {
+            const response = await fetch(`https://buzz-backend-pied.vercel.app/api/profile/${username}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
@@ -60,7 +60,7 @@ function UserProfile({colors, handleMessages}){
     const checkFollowStatus = async (targetUserId) => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get(`http://localhost:8000/api/check-follow/${targetUserId}`, {
+            const response = await axios.get(`https://buzz-backend-pied.vercel.app/api/check-follow/${targetUserId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -76,7 +76,7 @@ function UserProfile({colors, handleMessages}){
     const toggleFollow = async () => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.post('http://localhost:8000/api/follow', {
+            const response = await axios.post('https://buzz-backend-pied.vercel.app/api/follow', {
                 targetUserId: profile.userId
             }, {
                 headers: {
@@ -98,7 +98,7 @@ function UserProfile({colors, handleMessages}){
 
     const getFollowing = async (username) => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/following/${username}`, {
+            const response = await axios.get(`https://buzz-backend-pied.vercel.app/api/following/${username}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
@@ -114,7 +114,7 @@ function UserProfile({colors, handleMessages}){
     // Function to get users who are following a particular user
     const getFollowers = async (username) => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/followers/${username}`, {
+            const response = await axios.get(`https://buzz-backend-pied.vercel.app/api/followers/${username}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('authToken')}`
                 }
@@ -145,7 +145,7 @@ function UserProfile({colors, handleMessages}){
     async function fetchUserPosts(username) {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get(`http://localhost:8000/api/profile-posts/${username}`, {
+            const response = await axios.get(`https://buzz-backend-pied.vercel.app/api/profile-posts/${username}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
