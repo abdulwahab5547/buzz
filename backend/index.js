@@ -19,9 +19,7 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
 
-
-// import userRoutes from './routes/userRoutes.js';
-
+const port = process.env.PORT || 5000;
 
 const router = Router();
 app.use(json());
@@ -1124,8 +1122,8 @@ app.get('/buzz', (req, res) => {
 })
 
 
-app.listen(process.env.PORT, () => {
-    console.log(`Example app listening on port ${process.env.PORT}`)
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
 })
 
 export default router;
