@@ -78,7 +78,7 @@ function Feed({colors, setIsLoading, handleExplore, fetchPosts, users, posts, se
             return;
         }
 
-        const response = await axios.get('http://localhost:8000/api/user', {
+        const response = await axios.get('https://buzz-backend-pied.vercel.app/api/user', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -137,7 +137,7 @@ function Feed({colors, setIsLoading, handleExplore, fetchPosts, users, posts, se
     
         try {
             // Post the new post
-            const response = await axios.post('http://localhost:8000/api/new-post', formData, {
+            const response = await axios.post('https://buzz-backend-pied.vercel.app/api/new-post', formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
@@ -235,7 +235,7 @@ function Feed({colors, setIsLoading, handleExplore, fetchPosts, users, posts, se
         formData.append('caption', caption);  // Append the caption to FormData
         
         try {
-            const response = await axios.post('http://localhost:8000/api/new-reel', formData, {
+            const response = await axios.post('https://buzz-backend-pied.vercel.app/api/new-reel', formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
