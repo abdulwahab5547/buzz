@@ -1,0 +1,44 @@
+.overlay{
+    padding: 0;
+}
+
+.search{
+    padding-top: 100px;
+}
+
+.search-overlay{
+    max-height: 400px;
+    max-width: 540px;
+    margin: auto;
+    position: relative;
+}
+
+.search-close{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.search-input{
+    border: none;
+    border-radius: 30px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    min-width: 100px;
+    transition: 0.3s ease;
+}
+
+.search-input:focus, .search-input:hover{
+    outline: none;
+    min-width: 200px;
+}
+
+.search-result-item{
+    border-radius: 10px;
+}
+
+.search-result-item:hover{
+    cursor: pointer;
+}

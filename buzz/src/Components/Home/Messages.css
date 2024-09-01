@@ -1,0 +1,90 @@
+.messages{
+    padding-top: 100px;
+    min-height: 86vh;
+}
+
+.max-message-content{
+    max-width: 1300px;
+    width: 85%;
+    margin: auto;
+  }
+
+.messages-container{
+    /* min-height: 500px; */
+    max-height: 500px;
+    margin: auto;
+}
+
+.message-users{
+    min-width: 300px;
+    height: auto;
+    overflow: auto;
+}
+
+.message-interface{
+    width: 600px;
+}
+
+.message-interface-top{
+    height: 70px;
+}
+
+.message-input-div {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center; 
+}
+
+.message-input-div textarea {
+    min-height: 53px; 
+    height: 53px;
+    flex: 1; 
+}
+
+.message-search-user input{
+    border: none;
+    width: 100%;
+    max-width: 300px;
+}
+
+.message-search-user input:focus{
+    outline: none;
+}
+
+.message.sent{
+    width: 60%;
+    margin-left: auto;
+}
+
+.message.received{
+    width: 60%;
+    margin-right: auto;
+}
+
+.message-list {
+    max-height: 450px;
+    overflow: auto;
+  }
+  
+  /* Webkit scrollbar styling */
+  .message-list::-webkit-scrollbar, .message-users::-webkit-scrollbar {
+    width: 12px; 
+  }
+  
+  .message-list::-webkit-scrollbar-track, .message-users::-webkit-scrollbar-track{
+    background: #f1f1f1; 
+    border-radius: 10px;
+  }
+  
+  .message-list::-webkit-scrollbar-thumb, .message-users::-webkit-scrollbar-thumb{
+    background: #888; /* Background color of the scrollbar thumb */
+    border-radius: 10px; /* Optional: Rounded corners for the thumb */
+  }
+  
+  .message-list::-webkit-scrollbar-thumb:hover, .message-users::-webkit-scrollbar-thumb:hover{
+    background: #555; /* Background color of the thumb on hover */
+  }

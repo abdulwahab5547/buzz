@@ -1,0 +1,66 @@
+.login, .register, .start{
+    height: 100vh;
+}
+
+.start-inner{
+    min-width: 30vw;
+    min-height: 30vh;
+}
+
+.register-inner{
+    min-width: 23vw;
+    min-height: 25vh;
+}
+
+.start-inner-container, .register-inner{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.start-end-div{
+    margin-top: auto;
+}
+
+.start-inner h1, .start-inner h2, .start-inner div, .start-inner p{
+    font-family: "Montserrat", sans-serif;
+}
+
+/* .register-inner{
+    height: 50vh;
+} */
+
+/* Start buzz animation */
+
+
+.waviy {
+    position: relative;
+    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+    font-size: 70px;
+}
+.waviy span {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    color: #DC4B3E;
+    text-transform: uppercase;
+    animation: waviy 1s infinite;
+    animation-delay: calc(.1s * var(--i));
+    
+}
+@keyframes waviy {
+    0%,40%,100% {
+      transform: translateY(0)
+    }
+    20% {
+      transform: translateY(-20px)
+    }
+}
+
+.credit-text{
+    position: absolute;
+    bottom: 35px;
+}
+
+.credit-text a{
+    text-decoration: none;
+}

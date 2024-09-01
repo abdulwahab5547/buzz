@@ -1,0 +1,21 @@
+.explore{
+    padding-top: 100px;
+    margin: auto;
+}
+
+.explore-row{
+    align-items: flex-start;
+}
+
+.explore-inner{
+    min-width: 330px;
+    max-width: 350px;
+    height: auto;
+    flex-direction: column;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.explore-inner-posts{
+    width: 100%;
+}

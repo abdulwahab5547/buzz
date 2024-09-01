@@ -1,0 +1,59 @@
+.add-post-input{
+    border-radius: 8px;
+    width: 100%;
+    border: none;
+}
+
+.add-post-input:focus{
+    outline: none;
+}
+
+.add-post-media-input{
+    max-width: 200px;
+    margin: auto;
+}
+
+.add-post-location input{
+    border: none;
+    
+}
+
+.add-post-location input:focus{
+    outline: none;
+}
+
+.new-post-div{
+    position: relative;
+}
+
+.add-post, .add-reel {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 1s ease, visibility 1s ease, transform 1s ease;
+    pointer-events: none; 
+    max-width: 500px;
+}
+
+.add-reel.show, .add-post.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto; 
+}
+
+.add-post-wrapper, .add-reel-wrapper{
+    position: relative; 
+    overflow: hidden;
+    max-height: 0;
+}
+
+.add-post-wrapper.show {
+    max-height: 700px; 
+    opacity: 1; 
+}
+
+.add-reel-wrapper.show{
+    max-height: 400px;
+    opacity: 1;
+}

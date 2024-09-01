@@ -1,0 +1,87 @@
+.reels{
+    padding-top: 100px;
+    /* position: relative; */
+}
+
+.max-reel-content{
+    margin: auto;
+}
+
+.reel{
+    min-height: 84vh;
+}
+
+.reel video{
+    width: auto;
+    max-height: 84vh;
+    max-width: 500px;
+}
+
+.reel-fade {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.rel-visible {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+.reels-inner{
+    max-width: 600px;
+    margin: auto;
+}
+
+.reel-video-div{
+    position: relative;
+}
+
+.pic-and-caption{
+    position: absolute;
+    left: -70px;
+    top: 10%;
+}
+
+.reel-info{
+    position: absolute;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.caption-div{
+    position: absolute;
+    left: -220px;
+    width: 220px;
+    height: 180px;
+    top: 45%;
+}
+
+.reel-comments-div{
+    position: absolute;
+    left: -280px;
+    width: 280px;
+    height: 300px;
+    top: 45%;
+}
+
+.reel-arrows{
+    position: absolute;
+    right: -70px;
+    top: 40%;
+}
+
+.reel-profile-img img{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.caption-icon-div{
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+}
+
+.caption-icon-div i{
+    font-size: 18px;
+}

@@ -1,0 +1,143 @@
+.profile{
+    min-height: 100vh;
+    padding-top: 100px;
+    max-width: 900px;
+    width: 85%;
+    margin: auto;
+}
+
+.profile-prp img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.profile-prp i{
+    font-size: 100px;
+}
+
+.username-div input, .bio-textarea-div textarea{
+    border: none;
+}
+
+.bio-textarea-div textarea{
+    min-width: 300px;
+    min-height: 110px;
+    max-height: 110px;
+}
+
+.username-div input:focus, .bio-textarea-div textarea:focus{
+    outline: none;
+}
+
+.username-edit-icon{
+    font-size: 12px;
+}
+
+.profile-prp{
+    position: relative;
+}
+
+.prp-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+    color: white;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-prp:hover .prp-image {
+    filter: blur(2px); 
+    
+  }
+
+.profile-prp:hover .prp-overlay {
+    opacity: 1; 
+    cursor: pointer;
+}
+
+.profile-details-inner {
+    display: flex;
+    align-items: center;
+
+}
+
+@media (max-width: 768px) { 
+    .profile-details-inner {
+        flex-direction: column; 
+    }
+}
+
+.profile-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 400px) { 
+    .profile-info {
+        flex-direction: column; 
+        align-items: flex-start;
+        text-align: left;
+        justify-content: start;
+    }
+    .bio-textarea-div{
+        min-width: 100px;
+    }
+    .profile{
+        width: 100%;
+        padding-top: 80px;
+    }
+    .profile-prp img{
+        width: 110px;
+        height: 110px;
+    }
+}
+
+.profile-post-image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-post-image-wrapper img {
+    width: 100%;
+    display: block;
+}
+
+.profile-post-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-post-image-wrapper:hover .profile-post-caption {
+    opacity: 1;
+}
+
+.text-only-post-inner, .profile-post-image-wrapper{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-only-post {
+    
+    min-height: 70px;
+}
+
+.text-only-caption {
+    word-wrap: break-word;
+}

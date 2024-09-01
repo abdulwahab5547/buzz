@@ -1,0 +1,148 @@
+
+/* General styling */
+
+.br{
+  border-radius: 8px;
+}
+
+.br-top{
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.br-bottom{
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.br-left{
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.blue{
+  color: lightskyblue;
+}
+
+.bbr{
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.bs{
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.gap{
+  gap: 10px;
+}
+
+.more-gap{
+  gap: 20px;
+}
+
+.extra-gap{
+  gap: 40px;
+}
+
+.profile-heading:hover{
+  color: #DC4B3E;
+  cursor: pointer;
+}
+
+.link-orange{
+  color: #DC4B3E;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.normal-btn{
+  border: none;
+  border-radius: 8px;
+  background-color: #DC4B3E;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.hover-icon {
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.hover-icon:hover, .hover-icon.active{
+  background-color: var(--icon-hover-hover);
+  cursor: pointer;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.main-div p, .main-div h1, .main-div h2, .main-div h3, .main-div input, .main-div button, .main-div span, .main-div div{
+  font-family: "Montserrat", sans-serif;
+}
+
+.text-sm{
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.text-esm{
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.text-lg{
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.text-esm-red{
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  color: #DC4B3E;
+  font-weight: bold;
+}
+
+.text-xsm-red{
+  font-size: 11px;
+  font-family: "Montserrat", sans-serif;
+  color: #DC4B3E;
+  font-weight: bold;
+}
+
+.text-xsm-white{
+  font-size: 11px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.post-caption{
+  color: #e0f0ff;
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.bold{
+  font-weight: 500;
+}
+
+
+.tr{
+  transition: background-color 0.5s;
+}
+
+.search-bar{
+  display: block;
+}
+
+
+.max-home-content{
+  max-width: 1300px;
+  width: 85%;
+  margin: auto;
+}
