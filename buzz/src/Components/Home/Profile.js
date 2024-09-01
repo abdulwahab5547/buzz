@@ -22,7 +22,7 @@ function Profile({colors}){
         const fetchUserData = async () => {
           try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get('http://localhost:8000/api/user', {
+            const response = await axios.get('https://buzz-backend-pied.vercel.app/api/user', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -55,7 +55,7 @@ function Profile({colors}){
     const handleUpdate = async (field) => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.put('http://localhost:8000/api/user', 
+            const response = await axios.put('https://buzz-backend-pied.vercel.app/api/user', 
             { 
                 username: field === 'username' ? newUsername : username,
                 bio: field === 'bio' ? newBio : null,
@@ -106,7 +106,7 @@ function Profile({colors}){
             const formData = new FormData();
             formData.append('file', selectedFile);
     
-            await axios.post('http://localhost:8000/api/profile-upload', formData, {
+            await axios.post('https://buzz-backend-pied.vercel.app/api/profile-upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}` 
@@ -127,7 +127,7 @@ function Profile({colors}){
         const fetchUserPosts = async () => {
             try {
                 const token = localStorage.getItem('authToken');
-                const response = await axios.get('http://localhost:8000/api/user-posts', {
+                const response = await axios.get('https://buzz-backend-pied.vercel.app/api/user-posts', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
