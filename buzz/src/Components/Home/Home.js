@@ -90,7 +90,7 @@ function Home({colors, toggleTheme, isLoggedIn, setIsLoggedIn}){
     const [users, setUsers] = useState([]);
     useEffect(() => {
         const token = localStorage.getItem('authToken');
-        fetch('http://localhost:8000/api/all-users', {
+        fetch('https://buzz-backend-pied.vercel.app/api/all-users', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -105,7 +105,7 @@ function Home({colors, toggleTheme, isLoggedIn, setIsLoggedIn}){
     const [posts, setPosts] = useState([]);
     const fetchPosts = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/api/new-post');
+            const response = await axios.get('https://buzz-backend-pied.vercel.app/api/new-post');
             setPosts(response.data);
         } catch (error) {
             console.error('Error fetching posts:', error.response ? error.response.data : error.message);
@@ -121,7 +121,7 @@ function Home({colors, toggleTheme, isLoggedIn, setIsLoggedIn}){
                 const authToken = localStorage.getItem('authToken'); 
 
                 const response = await axios.get(
-                    'http://localhost:8000/api/saved-posts',
+                    'https://buzz-backend-pied.vercel.app/api/saved-posts',
                     { headers: { Authorization: `Bearer ${authToken}` } } 
                 );
 
@@ -138,7 +138,7 @@ function Home({colors, toggleTheme, isLoggedIn, setIsLoggedIn}){
         const fetchUserData = async () => {
             try {
                 const token = localStorage.getItem('authToken');
-                const response = await axios.get('http://localhost:8000/api/user', {
+                const response = await axios.get('https://buzz-backend-pied.vercel.app/api/user', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -175,7 +175,7 @@ function Home({colors, toggleTheme, isLoggedIn, setIsLoggedIn}){
             }
 
             try {
-                const response = await axios.get('http://localhost:8000/api/notifications', {
+                const response = await axios.get('https://buzz-backend-pied.vercel.app/api/notifications', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -200,7 +200,7 @@ function Home({colors, toggleTheme, isLoggedIn, setIsLoggedIn}){
 
             try {
                 for (let user of users) {
-                    const response = await axios.get(`http://localhost:8000/api/check-follow/${user._id}`, {
+                    const response = await axios.get(`https://buzz-backend-pied.vercel.app/api/check-follow/${user._id}`, {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }
@@ -218,7 +218,7 @@ function Home({colors, toggleTheme, isLoggedIn, setIsLoggedIn}){
     const toggleFollow = async (targetUserId) => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.post('http://localhost:8000/api/follow', {
+            const response = await axios.post('https://buzz-backend-pied.vercel.app/api/follow', {
                 targetUserId
             }, {
                 headers: {
