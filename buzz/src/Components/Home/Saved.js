@@ -23,7 +23,7 @@ function Saved({colors, setIsLoading}){
                 const authToken = localStorage.getItem('authToken');  // Get the auth token
 
                 const response = await axios.get(
-                    'http://localhost:8000/api/saved-posts',
+                    'https://buzz-backend-pied.vercel.app/api/saved-posts',
                     { headers: { Authorization: `Bearer ${authToken}` } }  // Attach token to request
                 );
 
