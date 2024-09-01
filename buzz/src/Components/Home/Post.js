@@ -16,7 +16,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
             const authToken = localStorage.getItem('authToken'); 
     
             const response = await axios.get(
-                `http://localhost:8000/api/is-liked/${postID}`,
+                `https://buzz-backend-pied.vercel.app/api/is-liked/${postID}`,
                 { headers: { Authorization: `Bearer ${authToken}` } }
             );
     
@@ -39,7 +39,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
     const toggleLikePost = async () => {
         try {
             const authToken = localStorage.getItem('authToken');
-            const url = isLiked ? `http://localhost:8000/api/unlike-post` : `http://localhost:8000/api/like-post`;
+            const url = isLiked ? `https://buzz-backend-pied.vercel.app/api/unlike-post` : `https://buzz-backend-pied.vercel.app/api/like-post`;
     
             // Send request to save or unsave the post
             await axios.post(
@@ -64,7 +64,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
         try {
             const token = localStorage.getItem('authToken');
             const response = await axios.get(
-                `http://localhost:8000/api/likes/${postID}`,
+                `https://buzz-backend-pied.vercel.app/api/likes/${postID}`,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
 
@@ -140,7 +140,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
     const [comments, setComments] = useState([]);
     const fetchComments = async (postID) => {
         try {
-            const response = await axios.get(`http://localhost:8000/api/comments/${postID}`);
+            const response = await axios.get(`https://buzz-backend-pied.vercel.app/api/comments/${postID}`);
             return response.data;
         } catch (error) {
             console.error('Error fetching comments:', error.response ? error.response.data : error.message);
@@ -180,7 +180,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
         };
     
         try {
-            const response = await axios.post('http://localhost:8000/api/new-comment', commentData, {
+            const response = await axios.post('https://buzz-backend-pied.vercel.app/api/new-comment', commentData, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -224,7 +224,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
             const authToken = localStorage.getItem('authToken');  // Get the auth token
     
             const response = await axios.get(
-                `http://localhost:8000/api/is-saved/${postID}`,
+                `https://buzz-backend-pied.vercel.app/api/is-saved/${postID}`,
                 { headers: { Authorization: `Bearer ${authToken}` } }  // Attach token to request
             );
     
@@ -247,7 +247,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
     const toggleSavePost = async () => {
         try {
             const authToken = localStorage.getItem('authToken');
-            const url = isSaved ? `http://localhost:8000/api/unsave-post` : `http://localhost:8000/api/save-post`;
+            const url = isSaved ? `https://buzz-backend-pied.vercel.app/api/unsave-post` : `https://buzz-backend-pied.vercel.app/api/save-post`;
     
             // Send request to save or unsave the post
             await axios.post(
