@@ -1127,3 +1127,5 @@ app.listen(port, () => {
 })
 
 export default router;
+
+export default (req, res) => app(req, res);
