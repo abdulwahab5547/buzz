@@ -1117,15 +1117,16 @@ app.post('/api/messages', authenticateToken, async (req, res) => {
 
 
 
-app.get('/buzz', (req, res) => {
+app.get('/api/buzz', (req, res) => {
     res.send('Hello buzz buzz buzz!')
 })
+
+app.get('/api', (req, res) => {
+    res.send('Hello buzz!')
+})
+
 
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
-
-export default router;
-
-export default (req, res) => app(req, res);
