@@ -30,7 +30,7 @@ function Settings({colors}){
             return;
         }
 
-        const response = await axios.get('http://localhost:8000/api/user', {
+        const response = await axios.get('https://buzz-backend-pied.vercel.app/api/user', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -85,7 +85,7 @@ function Settings({colors}){
                 return;
             }
     
-            const response = await axios.put('http://localhost:8000/api/user', userData, {
+            const response = await axios.put('https://buzz-backend-pied.vercel.app/api/user', userData, {
             headers: {
                 Authorization: `Bearer ${token}` 
             }
