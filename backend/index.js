@@ -25,8 +25,18 @@ const router = Router();
 app.use(json());
 app.use(_json());
 
+const allowedOrigins = ['http://localhost:3000', 'https://buzz-theta.vercel.app'];
+
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: function(origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl requests)
+        // or ones that are in the allowedOrigins array
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
 }));
 
 app.use('/api', router);
