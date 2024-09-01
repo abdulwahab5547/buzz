@@ -28,7 +28,7 @@ function Login({colors, setIsLoggedIn}){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/api/login', formData);
+            const response = await axios.post('/api/login', formData);
             if (response.data.token) {
                 // Save token to localStorage
                 localStorage.setItem('authToken', response.data.token);
