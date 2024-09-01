@@ -11,7 +11,7 @@ function ReelsPage({ colors }) {
     useEffect(() => {
         const fetchReels = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/api/new-reel');
+                const response = await axios.get('https://buzz-backend-pied.vercel.app/api/new-reel');
                 setReels(response.data);
             } catch (error) {
                 console.error('Error fetching reels:', error.response ? error.response.data : error.message);
