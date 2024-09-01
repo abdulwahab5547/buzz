@@ -44,7 +44,7 @@ function Messages({colors, users}) {
         const fetchUserData = async () => {
             try {
                 const token = localStorage.getItem('authToken');
-                const response = await axios.get('http://localhost:8000/api/user', {
+                const response = await axios.get('https://buzz-backend-pied.vercel.app/api/user', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -67,7 +67,7 @@ function Messages({colors, users}) {
     useEffect(() => {
         if (selectedUserId) {
             // Fetch messages when a user is selected
-            axios.get(`http://localhost:8000/api/messages/${loggedInUserId}/${selectedUserId}`)
+            axios.get(`https://buzz-backend-pied.vercel.app/api/messages/${loggedInUserId}/${selectedUserId}`)
                 .then(res => setMessages(res.data))
                 .catch(err => console.error(err));
         }
@@ -82,7 +82,7 @@ function Messages({colors, users}) {
                 return;
             }
     
-            axios.post('http://localhost:8000/api/messages', {
+            axios.post('https://buzz-backend-pied.vercel.app/api/messages', {
                 senderId: loggedInUserId,
                 receiverId: selectedUserId,
                 content: newMessage,
