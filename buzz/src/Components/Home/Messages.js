@@ -189,6 +189,8 @@ function Messages({colors, users}) {
                             ))}
                         </div>
                     </div>
+
+                    // Updated one
                     <div className='message-input-div gap pb-4'>
                         <textarea
                             placeholder="Your message..."
@@ -196,6 +198,12 @@ function Messages({colors, users}) {
                             style={{ color: colors.Text, backgroundColor: colors.Input }}
                             value={newMessage}
                             onChange={(e) => setNewMessage(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    e.preventDefault(); 
+                                    handleSendMessage();
+                                }
+                            }}
                             autoFocus
                         />
                         <div onClick={handleSendMessage}
@@ -204,6 +212,7 @@ function Messages({colors, users}) {
                             <i class="fa-solid fa-arrow-up"></i>   
                         </div>
                     </div>
+                            
                 </div>
             </div>
         </div>
