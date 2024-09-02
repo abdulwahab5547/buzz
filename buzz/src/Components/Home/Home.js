@@ -215,24 +215,31 @@ function Home({colors, toggleTheme, isLoggedIn, setIsLoggedIn}){
 
         checkAllFollowStatuses();
     }, [users]);
+    
     const toggleFollow = async (targetUserId) => {
+        // Optimistically update the follow status in the UI
+        setUserFollowStatuses(prevStatuses => {
+            const originalStatus = prevStatuses[targetUserId];
+            return {
+                ...prevStatuses,
+                [targetUserId]: !originalStatus
+            };
+        });
+    
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.post('https://buzz-backend-pied.vercel.app/api/follow', {
-                targetUserId
-            }, {
+            await axios.post('http://localhost:8000/api/follow', { targetUserId }, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
 
-            // Toggle the follow status in the state
+        } catch (error) {
+            // Revert the follow status in the UI if the request fails
             setUserFollowStatuses(prevStatuses => ({
                 ...prevStatuses,
-                [targetUserId]: !prevStatuses[targetUserId]
+                [targetUserId]: !prevStatuses[targetUserId] // Revert to the original status
             }));
-
-        } catch (error) {
             console.error('Error following/unfollowing user:', error);
         }
     };
