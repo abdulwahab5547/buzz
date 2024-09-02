@@ -190,7 +190,7 @@ function Messages({colors, users}) {
                         </div>
                     </div>
 
-                    // Updated one
+
                     <div className='message-input-div gap pb-4'>
                         <textarea
                             placeholder="Your message..."
