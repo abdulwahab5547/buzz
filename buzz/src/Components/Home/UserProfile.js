@@ -251,7 +251,7 @@ function UserProfile({colors, handleMessages}){
             </div>
 
             ) : (
-                <p>Loading profile...</p>
+                 <p className='m-0 text-sm px-2'>Loading profile...</p>
             )}
 
             <Overlay
