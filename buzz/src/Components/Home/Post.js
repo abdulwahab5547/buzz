@@ -37,23 +37,27 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
     }, [postID]);
 
     const toggleLikePost = async () => {
+        // Optimistically update the UI
+        setAnimateHeart(true);
+        const originalIsLiked = isLiked;
+        setIsLiked(!isLiked);
+    
         try {
             const authToken = localStorage.getItem('authToken');
-            const url = isLiked ? `https://buzz-backend-pied.vercel.app/api/unlike-post` : `https://buzz-backend-pied.vercel.app/api/like-post`;
+            const url = isLiked ? `http://localhost:8000/api/unlike-post` : `http://localhost:8000/api/like-post`;
     
-            // Send request to save or unsave the post
+            // Send request to like or unlike the post
             await axios.post(
                 url,
                 { postId: postID },
                 { headers: { Authorization: `Bearer ${authToken}` } }
             );
     
-            // Toggle the saved state and update the icon
-            setAnimateHeart(true);
-            setIsLiked(!isLiked);
+            // If successful, fetch updated liked users
             fetchLikedUsers();
-            // toast.success(isSaved ? 'Post unsaved!' : 'Post saved!');
         } catch (error) {
+            // Revert the UI update if the request fails
+            setIsLiked(originalIsLiked);
             toast.error('Failed to like post.');
             console.error('Error liking post:', error);
         }
@@ -161,7 +165,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
 
     const handleAddComment = async (postId, commentText) => {
         const token = localStorage.getItem('authToken');
-        
+    
         if (!token) {
             console.error('No token found');
             toast.info('Please log in to use all features.');
@@ -176,21 +180,32 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
     
         const commentData = {
             postId,
-            text: commentText
+            text: commentText,
         };
     
+        // Optimistically add the comment to the UI
+        const newComment = { id: Date.now(), text: commentText, user: { /* user details here */ } };
+        setComments((prevComments) => [...prevComments, newComment]);
+    
         try {
-            const response = await axios.post('https://buzz-backend-pied.vercel.app/api/new-comment', commentData, {
+            const response = await axios.post('http://localhost:8000/api/new-comment', commentData, {
                 headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
             });
     
             console.log('Comment added:', response.data);
-            const fetchedComments = await fetchComments(postID);
+    
+            // Fetch and update the comments list from the backend
+            const fetchedComments = await fetchComments(postId);
             setComments(fetchedComments);
         } catch (error) {
+            // Revert the optimistic UI update
+            setComments((prevComments) =>
+                prevComments.filter((comment) => comment.id !== newComment.id)
+            );
+    
             // Safely log the error
             if (error.response) {
                 console.error('Error adding comment:', error.response.data);
@@ -198,7 +213,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
                 console.error('Error adding comment:', error.message);
             }
         }
-    };    
+    };
 
     const handleCommentChange = (event) => {
         setCommentText(event.target.value);
@@ -245,9 +260,14 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
     }, [postID]);
 
     const toggleSavePost = async () => {
+        // Optimistically update the UI
+        setAnimateBookmark(true);
+        const originalIsSaved = isSaved;
+        setIsSaved(!isSaved);
+    
         try {
             const authToken = localStorage.getItem('authToken');
-            const url = isSaved ? `https://buzz-backend-pied.vercel.app/api/unsave-post` : `https://buzz-backend-pied.vercel.app/api/save-post`;
+            const url = isSaved ? `http://localhost:8000/api/unsave-post` : `http://localhost:8000/api/save-post`;
     
             // Send request to save or unsave the post
             await axios.post(
@@ -256,11 +276,12 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
                 { headers: { Authorization: `Bearer ${authToken}` } }
             );
     
-            // Toggle the saved state and update the icon
-            setAnimateBookmark(true);
-            setIsSaved(!isSaved);
-            // toast.success(isSaved ? 'Post unsaved!' : 'Post saved!');
+            // Optionally, you could fetch the updated saved posts here if necessary
+            // const updatedSavedPosts = await fetchSavedPosts();
+            // setSavedPosts(updatedSavedPosts);
         } catch (error) {
+            // Revert the UI update if the request fails
+            setIsSaved(originalIsSaved);
             toast.error('Failed to save post.');
             console.error('Error saving post:', error);
         }
