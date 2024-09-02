@@ -11,12 +11,13 @@
 
 .messages-container{
     /* min-height: 500px; */
-    max-height: 500px;
+    max-height: 650px;
+    min-height: auto;
     margin: auto;
 }
 
 .message-users{
-    min-width: 300px;
+    max-width: 300px;
     height: auto;
     overflow: auto;
 }
@@ -37,6 +38,17 @@
     display: flex;
     box-sizing: border-box;
     align-items: center; 
+}
+
+.submit-buzzai{
+    background-color: #DC4A3E;
+    border-radius: 50%;
+}
+
+.submit-buzzai i{
+    padding: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 .message-input-div textarea {
@@ -65,6 +77,11 @@
     margin-right: auto;
 }
 
+.message-container{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .message-list {
     max-height: 450px;
     overflow: auto;
@@ -88,3 +105,57 @@
   .message-list::-webkit-scrollbar-thumb:hover, .message-users::-webkit-scrollbar-thumb:hover{
     background: #555; /* Background color of the thumb on hover */
   }
+
+@media (max-width: 1050px) {
+    .message-interface{
+        width: 400px;
+    }
+}
+
+@media (max-width: 830px) {
+    .message-interface{
+        width: 250px;
+    }
+    .message-users{
+        max-width: 250px;
+    }
+    .message-search-user input{
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 580px) {
+    .message-user-details-div{
+        display: none;
+    }
+    .message-users{
+        max-width: 102px;
+    }
+    .messages{
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 420px) {
+    .max-message-content{
+        width: 100%;
+    }    
+    .messages-container{
+        width: 100%;
+        margin: auto;
+    }
+    .selected-user-div{
+        display: none;
+    }
+    .message-timestamps{
+        display: none;
+    }
+    .message-container{
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .message-list{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
