@@ -324,7 +324,7 @@ function Feed({colors, setIsLoading, handleExplore, fetchPosts, users, posts, se
                                 <input
                                     type="text"
                                     placeholder="What's on your mind...."
-                                    className="py-3 px-3 post-input"
+                                    className="post-input"
                                     style={{ color: colors.Text, backgroundColor: colors.Input }}
                                     onClick={handleInputClick}
                                 />
