@@ -487,7 +487,7 @@ function Feed({colors, setIsLoading, handleExplore, fetchPosts, users, posts, se
                             />
                         ))
                     ) : (
-                        <p>No posts available</p>
+                        <p className='px-2 m-0 text-sm'>Loading posts...</p>
                     )}
                         <div className='invisible-div'>
                             <img className='invisible-img' src={Invisible} />
