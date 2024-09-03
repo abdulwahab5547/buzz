@@ -228,7 +228,7 @@ function Home({colors, toggleTheme, isLoggedIn, setIsLoggedIn}){
     
         try {
             const token = localStorage.getItem('authToken');
-            await axios.post('http://localhost:8000/api/follow', { targetUserId }, {
+            await axios.post('https://buzz-backend-pied.vercel.app/api/follow', { targetUserId }, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
