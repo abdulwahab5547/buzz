@@ -44,7 +44,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
     
         try {
             const authToken = localStorage.getItem('authToken');
-            const url = isLiked ? `http://localhost:8000/api/unlike-post` : `http://localhost:8000/api/like-post`;
+            const url = isLiked ? `https://buzz-backend-pied.vercel.app/api/unlike-post` : `https://buzz-backend-pied.vercel.app/api/like-post`;
     
             // Send request to like or unlike the post
             await axios.post(
@@ -188,7 +188,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
         setComments((prevComments) => [...prevComments, newComment]);
     
         try {
-            const response = await axios.post('http://localhost:8000/api/new-comment', commentData, {
+            const response = await axios.post('https://buzz-backend-pied.vercel.app/api/new-comment', commentData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
@@ -267,7 +267,7 @@ function Post({postID, colors, image, likes, caption, user, location, setPosts, 
     
         try {
             const authToken = localStorage.getItem('authToken');
-            const url = isSaved ? `http://localhost:8000/api/unsave-post` : `http://localhost:8000/api/save-post`;
+            const url = isSaved ? `https://buzz-backend-pied.vercel.app/api/unsave-post` : `https://buzz-backend-pied.vercel.app/api/save-post`;
     
             // Send request to save or unsave the post
             await axios.post(
